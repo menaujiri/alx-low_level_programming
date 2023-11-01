@@ -33,7 +33,8 @@ char *argstostr(int ac, char **av)
 			k++;
 		}
 		output[k++] = '\n';
+		return (output);
 	}
 	output[k++] = '\0';
-	return (output);
+	return (0);
 }
