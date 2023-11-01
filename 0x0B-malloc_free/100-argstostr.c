@@ -3,35 +3,37 @@
 #include <stdlib.h>
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
- * Return: nothing
- */
-void print_tab(char **tab)
-{
-	int i;
-
-	for (i = 0; tab[i] != NULL; ++i)
-	{
-		printf("%s\n", tab[i]);
-	}
-}
-
-/**
- * main - check the code for ALX School students.
- * Return: 1 if an error occurred, 0 otherwise
+ * argstostr - concatenates arguments of a function
+ * @ac: argument count
+ * @av: argument vector
+ * Return: pointer to concatenated string
  */
 
-int main(void)
+char *argstostr(int ac, char **av)
 {
-	char **tab;
+	int i, j, k = 0;
+	int count = 0;
+	char *output;
 
-	tab = strtoq("      ALX School         #cisfun      ");
-	if (tab == NULL)
+	for (i = 0; i < ac; i++)
 	{
-		printf("Failed\n");
-		return (1);
+		for (j = 0; av[i][j] != '\0'; j++)
+			count++;
+		count++;
 	}
-	print_tab(tab);
-	return (0);
+	output = malloc(sizeof(char) * count + 1);
+	if (output == NULL)
+		return (NULL);
+
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			output[k] = av[i][j];
+			k++;
+		}
+		output[k++] = '\n';
+	}
+	output[k++] = '\0';
+	return (output);
 }
