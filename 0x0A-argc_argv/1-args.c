@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * main : number of arguments
+ * main - number of arguments
  * @argc: arguments count
  * @argv: argument vector
- * Return: 0
+ * Return: (0)
  */
 
 int main(int argc, char *argv[])
